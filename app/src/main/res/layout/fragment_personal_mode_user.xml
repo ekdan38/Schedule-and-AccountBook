@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Public_mode_user">
+    tools:context=".Personal_mode_user">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="공용 마이페이지"
+                android:text="개인 마이페이지"
                 android:textSize="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
@@ -46,6 +46,13 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:text="회원탈퇴!"/>
+
+            <Button
+                android:id="@+id/btn_mkGroup"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:text="그룹만들기!"/>
 
         </LinearLayout>
 

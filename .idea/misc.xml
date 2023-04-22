@@ -14,9 +14,16 @@
         <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/activity_sign_up.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_accountbook.xml" value="0.2390625" />
         <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_calendar.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_personal_mode_accountbook.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_personal_mode_makegroup.xml" value="0.21458333333333332" />
+        <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_personal_mode_statistics.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_personal_mode_user.xml" value="0.17760416666666667" />
         <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_public_mode__user_accountbook.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_public_mode_calendar.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_public_mode_statistics.xml" value="0.21458333333333332" />
         <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_public_mode_user.xml" value="0.2046875" />
+        <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_public_mode_user_accountbook.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_show__invite_code.xml" value="0.19270833333333334" />
         <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/layout/fragment_user.xml" value="0.2390625" />
         <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/menu/bottom_menu.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/hongjeonghwa/AndroidStudioProjects/Scheduleandaccountbook/app/src/main/res/menu/public_mode_bottom_menu.xml" value="0.25364583333333335" />

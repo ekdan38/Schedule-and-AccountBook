@@ -19,8 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class sign_up extends AppCompatActivity {
 
     private FirebaseAuth auth; //파이어베이스 인증 객체
-    private DatabaseReference mDatabaseRef; // 실시간 데이터베이스
-    private DatabaseReference pDatabaseRef;
+    private DatabaseReference uDatabaseRef; // 실시간 데이터베이스
+    private DatabaseReference peDatabaseRef;
     private EditText Id,Pwd; // 회원가입 입력 필드
     private Button btn_sign_up; // 회원가입 버튼
 
@@ -30,8 +30,8 @@ public class sign_up extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         auth = FirebaseAuth.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("SAA");
-        pDatabaseRef = FirebaseDatabase.getInstance().getReference("SAA");
+        uDatabaseRef = FirebaseDatabase.getInstance().getReference("AccountBook");
+        peDatabaseRef = FirebaseDatabase.getInstance().getReference("AccountBook");
         Id = findViewById(R.id.Id);
         Pwd = findViewById(R.id.Pwd);
         btn_sign_up = findViewById(R.id.btn_signup);
@@ -58,8 +58,10 @@ public class sign_up extends AppCompatActivity {
 
 
                             //setValue=> database 에 insert(삽입) 행위
-                            pDatabaseRef.child("Personal_User_DB").child(firebaseUser.getUid()).setValue(personal);
-                            mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
+                            peDatabaseRef.child("Personal_User_DB").child(firebaseUser.getUid()).setValue(personal);
+                            //perseonal에 ID토큰
+                            uDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
+                            //useraccount에 토큰,아이디,비번
                             Toast.makeText(sign_up.this,"회원가입에 성공",Toast.LENGTH_SHORT).show();
                             finish();
                         }else{

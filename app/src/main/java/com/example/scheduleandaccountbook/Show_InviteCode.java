@@ -4,15 +4,12 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,17 +20,12 @@ import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Personal_mode_accountbook#newInstance} factory method to
+ * Use the {@link Show_InviteCode#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Personal_mode_accountbook extends Fragment {
+public class Show_InviteCode extends Fragment {
 
-    private final static float CLICK_DRAG_TOLERANCE = 10; // Often, there will be a slight, unintentional, drag when the user taps the FAB, so we need to account for this.
-    private float downRawX, downRawY;
-    private float dX, dY;
-    private FloatingActionButton FBtn;
-
-
+    private DatabaseReference puDatabaseRef;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -43,7 +35,7 @@ public class Personal_mode_accountbook extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Personal_mode_accountbook() {
+    public Show_InviteCode() {
         // Required empty public constructor
     }
 
@@ -53,17 +45,20 @@ public class Personal_mode_accountbook extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Personal_mode_accountbook.
+     * @return A new instance of fragment Show_InviteCode.
      */
     // TODO: Rename and change types and number of parameters
-    public static Personal_mode_accountbook newInstance(String param1, String param2) {
-        Personal_mode_accountbook fragment = new Personal_mode_accountbook();
+    public static Show_InviteCode newInstance(String param1, String param2) {
+        Show_InviteCode fragment = new Show_InviteCode();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
-
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public static Show_InviteCode newInstance() {
+        return new Show_InviteCode();
     }
 
     @Override
@@ -75,20 +70,30 @@ public class Personal_mode_accountbook extends Fragment {
         }
     }
 
-//    FirebaseDatabase database = FirebaseDatabase.getInstance();
-//    DatabaseReference pDatabaseRef = database.getReference("AccountBook/Public_User_DB");
-//    FirebaseAuth auth = FirebaseAuth.getInstance();
-//    FirebaseUser currentUser = auth.getCurrentUser();
-//    //        if (currentUser == null) {
-////            // 현재 접속중인 사용자가 없는 경우 처리
-////            return;
-////        }
-//    String currentUserId = currentUser.getUid();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_personal_mode_accountbook,container,false);
+        View view = inflater.inflate(R.layout.fragment_show__invite_code, container, false);
+        TextView text1 = view.findViewById(R.id.textView1);
+        TextView text2 = view.findViewById(R.id.textView2);
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference groupRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("Public_User_DB");
+        groupRef.orderByChild("creatorUid").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot groupSnapshot : dataSnapshot.getChildren()) {
+                    String inviteCode = groupSnapshot.child("inviteCode").getValue(String.class);
+                    text2.setText(inviteCode);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
 
         return view;
     }

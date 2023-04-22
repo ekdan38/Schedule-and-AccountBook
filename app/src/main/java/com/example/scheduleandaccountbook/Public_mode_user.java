@@ -71,7 +71,7 @@ public class Public_mode_user extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_user,container,false);
+        View view = inflater.inflate(R.layout.fragment_public_mode_user,container,false);
         //로그아웃 처리 시작
         auth = FirebaseAuth.getInstance();
         Button btn_logout = view.findViewById(R.id.btn_logout);
@@ -114,5 +114,4 @@ public class Public_mode_user extends Fragment {
         //회원 탈퇴 끝
         return view;
 
-    }
-}
+    }}

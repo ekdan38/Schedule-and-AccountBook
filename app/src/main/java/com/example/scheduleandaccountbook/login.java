@@ -27,7 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
-    private DatabaseReference mDatabaseRef; // 실시간 데이터베이스
+    private DatabaseReference uDatabaseRef; // user account 실시간 db
     private EditText Id,Pwd; // 회원가입 입력 필드
 
     private SignInButton btn_google;// 구글 로그인 버튼
@@ -45,7 +45,7 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
 
         auth = FirebaseAuth.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("SAA");
+        uDatabaseRef = FirebaseDatabase.getInstance().getReference("AccountBook");
 
         Id = findViewById(R.id.Id);
         Pwd = findViewById(R.id.Pwd);
