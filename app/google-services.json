@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "543403986608",
+    "project_id": "schedule-and-accountbook",
+    "storage_bucket": "schedule-and-accountbook.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543403986608:android:b29f4f7adeb659408ff575",
+        "android_client_info": {
+          "package_name": "com.example.scheduleandaccountbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543403986608-39qs7hamtauqf8r4a8bg2qnpqrr18tdq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.scheduleandaccountbook",
+            "certificate_hash": "9edcc4e4b4e252be9222884b6a9745b7c5a4ac39"
+          }
+        },
+        {
+          "client_id": "543403986608-ebfj2c5ulijpua9mcpgmmsvf80h2ruvb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWUbUn7ryQ0Y4Zhn6gDd6toGvWTemF90s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543403986608-ebfj2c5ulijpua9mcpgmmsvf80h2ruvb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

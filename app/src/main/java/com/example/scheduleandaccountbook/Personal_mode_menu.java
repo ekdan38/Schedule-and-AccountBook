@@ -1,0 +1,62 @@
+package com.example.scheduleandaccountbook;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+public class Personal_mode_menu extends AppCompatActivity {
+    private FrameLayout menu_frame;
+    BottomNavigationView bottomNavigationView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu);
+
+        init(); //객체 정의
+        SettingListener(); //리스너 등록
+
+        //맨 처음 시작할 탭 설정
+        bottomNavigationView.setSelectedItemId(R.id.Personal_mode_tab_calendar);
+    }
+    private void init() {
+        menu_frame = findViewById(R.id.personal_mode_menu_frame);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+    }
+    private void SettingListener() {
+        //선택 리스너 등록
+        bottomNavigationView.setOnNavigationItemSelectedListener(new Personal_mode_menu.TabSelectedListener());
+    }
+
+    class TabSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
+        @Override
+        public boolean onNavigationItemSelected(MenuItem menuItem) {
+            switch (menuItem.getItemId()) {
+                case R.id.Personal_mode_tab_calendar: {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.personal_mode_menu_frame, new Personal_mode_calendar())
+                            .commit();
+                    return true;
+                }
+                case R.id.Personal_mode_tab_accountbook: {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.personal_mode_menu_frame, new Personal_mode_accountbook())
+                            .commit();
+                    return true;
+                }
+                case R.id.Personal_mode_tab_user: {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.personal_mode_menu_frame, new Personal_mode_user())
+                            .commit();
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    }
+}
