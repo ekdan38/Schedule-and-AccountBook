@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Public_mode_accountbook_ocr">
+    tools:context=".Public_mode_accountbook_ocr"
+    android:background="@color/white">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/white"
         android:weightSum="3">
+
         <Button
-            android:id="@+id/btn_day"
+            android:id="@+id/btn_pday"
             android:backgroundTint="@color/white"
             android:background="#00ff0000"
             android:layout_width="wrap_content"
@@ -22,7 +24,7 @@
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/btn_month"
+            android:id="@+id/btn_pmonth"
             android:backgroundTint="@color/white"
             android:background="#00ff0000"
             android:layout_width="wrap_content"
@@ -33,13 +35,13 @@
 
 
         <Button
-            android:id="@+id/btn_ocr"
+            android:id="@+id/btn_pocr"
             android:backgroundTint="@color/white"
             android:background="#00ff0000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="영수증 인식"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_weight="1"/>
@@ -47,32 +49,38 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">>
+        android:layout_height="match_parent">
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/FloatingBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="2dp"
             android:backgroundTint="@color/white"
             android:clickable="true"
             android:src="@drawable/plus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="452dp"
+            android:text="개인 가계부 ocr"
+            android:textAlignment="center"
+            android:textSize="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/FloatingBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <TextView
-        android:id="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="54dp"
-        android:text="공용가계부OCR"
-        android:textSize="60dp" />
 
 </FrameLayout>

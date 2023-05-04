@@ -38,11 +38,5 @@ public class Public_User_DB {
         this.inviteCode = inviteCode;
     }
 
-//    public Public_User_DB(String groupName, String creatorUid, String inviteCode) {
-//        this.groupName = groupName;
-//        this.creatorUid = creatorUid;
-//        this.inviteCode = inviteCode;
-//
-//    }
 
 }

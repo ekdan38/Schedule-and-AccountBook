@@ -4,77 +4,223 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Personal_mode_accountbook">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:weightSum="3">
-
-        <Button
-            android:id="@+id/btn_pday"
-            android:backgroundTint="@color/white"
-            android:background="#00ff0000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="일일"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_weight="1"/>
-
-        <Button
-            android:id="@+id/btn_pmonth"
-            android:backgroundTint="@color/white"
-            android:background="#00ff0000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="월별"
-            android:textColor="@color/black"
-            android:layout_weight="1"/>
-
-
-        <Button
-            android:id="@+id/btn_pocr"
-            android:backgroundTint="@color/white"
-            android:background="#00ff0000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="영수증 인식"
-            android:textColor="@color/black"
-            android:layout_weight="1"/>
-    </LinearLayout>
+    tools:context=".Personal_mode_accountbook"
+    android:background="@color/white"
+    android:id="@+id/personal_mode_accountbook"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#b3cde0"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <Button
+                    android:id="@+id/btn_pday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00ff0000"
+                    android:backgroundTint="@color/white"
+                    android:text="일일"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_pmonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00ff0000"
+                    android:backgroundTint="@color/white"
+                    android:text="월별"
+                    android:textColor="@color/black" />
+
+
+                <Button
+                    android:id="@+id/btn_pocr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00ff0000"
+                    android:backgroundTint="@color/white"
+                    android:text="영수증 인식"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="#b3cde0">
+
+                <ImageButton
+                    android:id="@+id/back"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:background="#b3cde0"
+                    android:padding="0sp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/back" />
+
+
+                <TextView
+                    android:id="@+id/getTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="2022-22-22"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/next"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="40dp"
+                    android:padding="0sp"
+                    android:background="#b3cde0"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:text="수입"
+                        android:textAlignment="center"
+                        android:textColor="#0000ff" />
+
+                    <TextView
+                        android:id="@+id/tv_income"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="0원"
+                        android:textColor="#0000ff" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:text="지출"
+                        android:textAlignment="center"
+                        android:textColor="#ff0000" />
+
+                    <TextView
+                        android:id="@+id/tv_expense"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="0원"
+                        android:textColor="#ff0000" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:text="합계"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="0원"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="580dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/FloatingBtn"
+            android:id="@+id/add_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
             android:backgroundTint="@color/white"
             android:clickable="true"
             android:src="@drawable/plus"
+            app:layout_anchorGravity="bottom|end"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="405dp"
-            android:layout_height="165dp"
-            android:layout_marginTop="60dp"
-            android:text="개인 가계부 일별"
-            android:textAlignment="center"
-            android:textSize="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
+
+

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Personal_mode_makegroup"
-    android:backgroundTint="@color/black">
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="73dp"
             android:text="모임 가계부의 이름을 입력해주세요!"
+            android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_GroupName"
             app:layout_constraintStart_toStartOf="@+id/edt_GroupName"
@@ -32,6 +33,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="2dp"
             android:hint="입력해주세요"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/btn_GroupName"
             app:layout_constraintEnd_toStartOf="@+id/btn_GroupName"
             app:layout_constraintStart_toStartOf="parent"

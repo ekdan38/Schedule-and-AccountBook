@@ -28,34 +28,6 @@ public class Select extends AppCompatActivity {
     private DatabaseReference peDatabaseRef;
     private DatabaseReference puDatabaseRef;
 
-//    private void joinGroup(String inviteCode, String memberUid) {
-////        DatabaseReference groupsRef = FirebaseDatabase.getInstance().getReference("groups");
-//        puDatabaseRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("Public_User_DB");
-//
-//        puDatabaseRef.orderByChild("inviteCode").equalTo(inviteCode).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists()) {
-//                    // A group with the given invite code exists
-//                    DataSnapshot groupSnapshot = dataSnapshot.getChildren().iterator().next();
-//                    String groupId = groupSnapshot.getKey();
-//
-//                    // Add the member to the group
-//                    DatabaseReference membersRef = puDatabaseRef.child(groupId).child("members");
-//                    membersRef.child(memberUid).setValue(true);
-//                } else {
-//                    // The invite code is invalid
-//                    Toast.makeText(Select.this,"잘못된 초대 코드입니다.",Toast.LENGTH_SHORT).show();
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                // Handle database error
-//            }
-//        });
-//    }
                 ///////////////////////////////////////////////
     public Button btn_personal_mode, btn_public_mode;
     @Override
@@ -84,34 +56,7 @@ public class Select extends AppCompatActivity {
         btn_public_mode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//                DatabaseReference groupRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("Public_User_DB");
-//                groupRef.orderByChild("members").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-//    //                     groupRef.orderByChild("creatorUid").
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        if (dataSnapshot.exists()) {
-//                            Intent intent = new Intent(getApplicationContext(), Public_mode_menu.class);//일단은 메뉴로 넘어가게
-//                            startActivity(intent);
-//                            return;
-//                        }
-//                        else{
-//                            Toast.makeText(Select.this,"공유 가계부에 가입하거나 만드세요! \n마이페이지 > 공유 가계부 만들기 \n" +
-//                                    " 공유 가계부 가입",Toast.LENGTH_SHORT).show();
-//
-//                        }
-////                        for (DataSnapshot groupSnapshot : dataSnapshot.getChildren()) {
-//////                            String inviteCode = groupSnapshot.child("inviteCode").getValue(String.class);
-////                            Intent intent = new Intent(getApplicationContext(), Public_mode_menu.class);//일단은 메뉴로 넘어가게
-////                            startActivity(intent);
-////                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError error) {
-//
-//                    }
-//                });
+
                 String uid = FirebaseAuth.getInstance().getCurrentUser().getUid(); //접속중인 사용자의 Uid 받아온다
                 DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("UserAccount").child(uid);
                 DatabaseReference groupRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("Public_User_DB");

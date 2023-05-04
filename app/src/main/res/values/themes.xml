@@ -12,5 +12,34 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="android:textColor">@color/my_calendar_text_color</item>
+
+    </style>
+
+    <style name="CalendarViewStyle">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="MyCalendarView" parent="@android:style/Widget.CalendarView">
+        <item name="android:dateTextAppearance">@style/MyCalendarView.DateTextAppearance</item>
+        <item name="android:weekDayTextAppearance">@style/MyCalendarView.WeekDayTextAppearance</item>
+        <item name="android:focusedMonthDateColor">@color/black</item>
+        <item name="android:unfocusedMonthDateColor">@color/black</item>
+        <item name="android:selectedWeekBackgroundColor">#BCCDCD</item>
+        <item name="android:weekNumberColor">@color/black</item>
+    </style>
+    <style name="MyCalendarView.DateTextAppearance" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="MyCalendarView.WeekDayTextAppearance" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <item name="colorAccent">#b3cde0</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="android:textColorPrimary">@color/black</item>
     </style>
 </resources>

@@ -68,7 +68,7 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
                             startActivity(intent);
                             finish(); //로그인 액티비티 파괴하고 넘어가자!
                         }else {//로그인 실패
-                            Toast.makeText(login.this,"로그인 실패",Toast.LENGTH_SHORT).show();//로그인이 성공했으면
+                            Toast.makeText(login.this,"아이디 비밀번호를 다시 입력해주세요.",Toast.LENGTH_SHORT).show();//로그인이 성공했으면
 
                         }
                     }

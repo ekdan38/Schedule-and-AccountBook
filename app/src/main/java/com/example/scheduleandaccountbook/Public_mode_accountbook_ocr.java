@@ -68,8 +68,8 @@ public class Public_mode_accountbook_ocr extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_public_mode_accountbook_ocr,container,false);
 
-        btn_day= view.findViewById(R.id.btn_day);
-        btn_month = view.findViewById(R.id.btn_month);
+        Button btn_day = view.findViewById(R.id.btn_pday);
+        Button btn_month = view.findViewById(R.id.btn_pmonth);
         btn_day.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

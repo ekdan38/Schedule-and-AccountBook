@@ -95,11 +95,7 @@ public class Public_mode_user extends Fragment {
                 builder.setNegativeButton("아니요", null);
                 builder.show();
             }
-//                            auth.signOut();
-//                            Intent intent = new Intent(getActivity(), login.class);
-//                            startActivity(intent);
-//                            getActivity().finish();
-//                            Toast.makeText(getActivity(), "로그아웃", Toast.LENGTH_SHORT).show();//로그아웃
+
 
         });
 
@@ -135,6 +131,14 @@ public class Public_mode_user extends Fragment {
                         }
                     }
                 });
+
+            }
+        });
+        Button btn_invitecode = view.findViewById(R.id.btn_invitecodde);
+        btn_invitecode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((Public_mode_menu)getActivity()).replaceFragment(Show_InviteCode.newInstance());
 
             }
         });

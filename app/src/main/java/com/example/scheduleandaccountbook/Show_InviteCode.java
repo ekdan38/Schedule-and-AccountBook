@@ -116,24 +116,6 @@ public class Show_InviteCode extends Fragment {
             }
         });
 
-
-//        DatabaseReference groupRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("Public_User_DB");
-//        groupRef.orderByChild("creatorUid").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot groupSnapshot : dataSnapshot.getChildren()) {
-//                    String inviteCode = groupSnapshot.child("inviteCode").getValue(String.class);
-//                    text2.setText(inviteCode);
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//
-//            }
-//        });
-
         view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {

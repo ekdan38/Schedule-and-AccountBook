@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Public_mode_user">
+    tools:context=".Personal_mode_user"
+    android:background="#F8F7F7">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,10 +20,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="공용 마이페이지"
-                android:textSize="40dp"
-                android:layout_gravity="center"
+                android:text="마이페이지"
+                android:textSize="50dp"
                 android:layout_marginTop="60dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+
                 />
 
         </LinearLayout>
@@ -32,20 +36,38 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
+            android:layout_margin="15dp"
             >
             <Button
+
                 android:id="@+id/btn_logout"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:text="로그아웃!"/>
+                android:text="로그아웃"
+                android:textColor="@color/black"
+                android:background="@drawable/buttons"
+                android:layout_marginBottom="5dp"/>
 
             <Button
                 android:id="@+id/btn_withdrawal"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:text="회원탈퇴!"/>
+                android:textColor="@color/black"
+                android:background="@drawable/buttons"
+                android:text="회원탈퇴"
+                android:layout_marginBottom="5dp"/>
+
+            <Button
+                android:id="@+id/btn_invitecodde"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/buttons"
+                android:text="초대코드"
+                android:layout_marginBottom="5dp"/>
 
         </LinearLayout>
 
