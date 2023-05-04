@@ -7,11 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".Personal_mode_menu">
 
+
     <FrameLayout
         android:id="@+id/personal_mode_menu_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="?attr/actionBarSize"/>
+        android:layout_marginBottom="?attr/actionBarSize">
+
+    </FrameLayout>
+
+
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"

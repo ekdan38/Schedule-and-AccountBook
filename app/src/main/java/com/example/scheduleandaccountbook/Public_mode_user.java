@@ -1,5 +1,7 @@
 package com.example.scheduleandaccountbook;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -24,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * create an instance of this fragment.
  */
 public class Public_mode_user extends Fragment {
+    private DatabaseReference uDatabaseRef;//User Account DB
 
     private FirebaseAuth auth;
     private DatabaseReference mDatabaseRef;
@@ -72,21 +75,35 @@ public class Public_mode_user extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_public_mode_user,container,false);
-        //로그아웃 처리 시작
-        auth = FirebaseAuth.getInstance();
         Button btn_logout = view.findViewById(R.id.btn_logout);
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                auth.signOut();
-                Intent intent = new Intent(getActivity(), login.class);
-                startActivity(intent);
-                getActivity().finish();
-                Toast.makeText(getActivity(), "로그아웃", Toast.LENGTH_SHORT).show();//로그아웃
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("로그아웃");
+                builder.setMessage("정말 로그아웃 하시겠습니까?");
+                builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        auth.signOut();
+                        Intent intent = new Intent(getActivity(), login.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                        Toast.makeText(getContext(), "로그아웃", Toast.LENGTH_SHORT).show(); //로그아웃
+                    }
+                });
+                builder.setNegativeButton("아니요", null);
+                builder.show();
             }
+//                            auth.signOut();
+//                            Intent intent = new Intent(getActivity(), login.class);
+//                            startActivity(intent);
+//                            getActivity().finish();
+//                            Toast.makeText(getActivity(), "로그아웃", Toast.LENGTH_SHORT).show();//로그아웃
+
         });
-        //로그아웃 처리 끝
-        //회원 탈퇴 시작
+
+
         Button btn_withdrawal = view.findViewById(R.id.btn_withdrawal);
         btn_withdrawal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,12 +113,23 @@ public class Public_mode_user extends Fragment {
                     @Override
                     public void onComplete(Task<Void> task) {
                         if (task.isSuccessful()) {
-                            mDatabaseRef = FirebaseDatabase.getInstance().getReference("SAA");
-                            mDatabaseRef.child("UserAccount").child(user.getUid()).removeValue();
-                            Toast.makeText(getActivity(), "계정 삭제 완료", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getActivity(), login.class);
-                            startActivity(intent);
-                            getActivity().finish();
+                            uDatabaseRef = FirebaseDatabase.getInstance().getReference("AccountBook");
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                            builder.setTitle("계정 삭제");
+                            builder.setMessage("정말 계정을 삭제 하시겠습니까?");
+                            builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    uDatabaseRef.child("UserAccount").child(user.getUid()).removeValue();
+                                    Toast.makeText(getActivity(), "계정 삭제 완료", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getActivity(), login.class);
+                                    startActivity(intent);
+                                    getActivity().finish();
+                                }
+                            });
+                            builder.setNegativeButton("아니요", null);
+                            builder.show();
+
 
 
                         }

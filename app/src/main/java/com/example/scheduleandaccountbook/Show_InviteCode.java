@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,28 +74,81 @@ public class Show_InviteCode extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_show__invite_code, container, false);
-        TextView text1 = view.findViewById(R.id.textView1);
+
         TextView text2 = view.findViewById(R.id.textView2);
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("UserAccount").child(uid);
         DatabaseReference groupRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("Public_User_DB");
-        groupRef.orderByChild("creatorUid").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot groupSnapshot : dataSnapshot.getChildren()) {
-                    String inviteCode = groupSnapshot.child("inviteCode").getValue(String.class);
-                    text2.setText(inviteCode);
+                String groupId = dataSnapshot.child("GroupId").getValue(String.class);
+                groupRef.child(groupId).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            String members = dataSnapshot.child("members").getValue(String.class);
+                            if ((members.contains("," + uid + ",")) || (members.contains(uid + ","))
+                                    || (members.contains("," + uid)) || (members.contains(uid)) ) {
+                                String inviteCode = dataSnapshot.child("inviteCode").getValue(String.class);
+                                text2.setText(inviteCode);
+                            }
+                        }
+                    }
 
-                }
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+
+                    }
+                });
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
-
+            public void onCancelled(DatabaseError databaseError) {
+                // 에러 처리
             }
         });
 
+
+//        DatabaseReference groupRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("Public_User_DB");
+//        groupRef.orderByChild("creatorUid").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot groupSnapshot : dataSnapshot.getChildren()) {
+//                    String inviteCode = groupSnapshot.child("inviteCode").getValue(String.class);
+//                    text2.setText(inviteCode);
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError error) {
+//
+//            }
+//        });
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
+                    // handle back button press here
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    getActivity().getSupportFragmentManager().popBackStack();
+
+                    return true;
+                }
+                return false;
+            }
+        });
         return view;
     }
 }

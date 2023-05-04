@@ -2,7 +2,7 @@ package com.example.scheduleandaccountbook;
 
 public class Personal_User_DB {
 
-    private String IdToken; //firebase Uid(고유 토큰정보, 회원의 키값)
+    private String Uid; //firebase Uid(고유 토큰정보, 회원의 키값)
     private String groupName;
 
     public String getGroupName() {

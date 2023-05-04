@@ -76,9 +76,6 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
             }
         });
 
-
-
-
         Button btn_sign_up = findViewById(R.id.btn_signup);
         btn_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +85,9 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 startActivity(intent);
             }
         });
+
+
+
 
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -100,7 +100,7 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 .build();
 
         auth = FirebaseAuth.getInstance();
-        btn_google = findViewById(R.id.btn_google_login);
+        btn_google = findViewById(R.id.btn_google_login);//구글 로그인버튼 누르면
         btn_google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,11 +129,16 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     @Override
                     public void onComplete(Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(login.this,"로그인성공",Toast.LENGTH_SHORT).show();//로그인이 성공했으면
-                            Intent intent = new Intent(getApplicationContext(), Personal_mode_menu.class);
-                            intent.putExtra("nickname",account.getDisplayName());
-                            intent.putExtra("photoUrl",String.valueOf(account.getPhotoUrl()));
+                            Toast.makeText(login.this,"구글 로그인성공",Toast.LENGTH_SHORT).show();//로그인이 성공했으면
+                            String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("UserAccount").child(uid);
+                            if(userRef == null)
+                            {
+                                userRef.child(uid).setValue(uid);
+                                Toast.makeText(login.this,"null인디",Toast.LENGTH_SHORT).show();//로그인이 성공했으면
 
+                            }
+                            Intent intent = new Intent(getApplicationContext(), Personal_mode_menu.class);
                             startActivity(intent);
                             finish();
                         }else{

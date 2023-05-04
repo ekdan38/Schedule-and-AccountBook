@@ -6,8 +6,12 @@ public class Public_User_DB {
     private String groupName;
     private String creatorUid;
     private String inviteCode;
-    private Map<String, Boolean> members;
-    public Public_User_DB() {}
+    private String members;
+
+    public String getMembers() { return members; }
+
+    public void setMembers(String members) { this.members = members; }
+//    public Public_User_DB() {}
 
     public String getGroupName() {
         return groupName;
@@ -16,6 +20,7 @@ public class Public_User_DB {
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
+
 
     public String getCreatorUid() {
         return creatorUid;
@@ -33,11 +38,11 @@ public class Public_User_DB {
         this.inviteCode = inviteCode;
     }
 
-    public Public_User_DB(String groupName, String creatorUid, String inviteCode) {
-        this.groupName = groupName;
-        this.creatorUid = creatorUid;
-        this.inviteCode = inviteCode;
-        this.members = members;
-    }
+//    public Public_User_DB(String groupName, String creatorUid, String inviteCode) {
+//        this.groupName = groupName;
+//        this.creatorUid = creatorUid;
+//        this.inviteCode = inviteCode;
+//
+//    }
 
 }

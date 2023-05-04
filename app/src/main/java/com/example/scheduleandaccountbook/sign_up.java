@@ -49,12 +49,12 @@ public class sign_up extends AppCompatActivity {
                         if (task.isSuccessful()){ //로그인이 됐다면 아래 수행
                             FirebaseUser firebaseUser = auth.getCurrentUser(); //getCurrentUser => 회원가입 이 된 유저를 가져온다.
                             UserAccount account = new UserAccount();
-                            account.setIdToken(firebaseUser.getUid());//사용자 고유 값
+                            account.setUid(firebaseUser.getUid());//사용자 고유 값
                             account.setId(firebaseUser.getEmail());
                             account.setPwd(strPwd);
 
                             UserAccount personal = new UserAccount();
-                            personal.setIdToken(firebaseUser.getUid());
+                            personal.setUid(firebaseUser.getUid());
 
 
                             //setValue=> database 에 insert(삽입) 행위

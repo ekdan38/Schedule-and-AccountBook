@@ -10,12 +10,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 
@@ -30,9 +36,9 @@ public class Personal_mode_makegroup extends Fragment {
     private DatabaseReference peDatabaseRef;
     private FirebaseAuth auth; //파이어베이스 인증 객체
 
-
     private void createNewGroup(String groupName) {
 //        DatabaseReference groupsRef = FirebaseDatabase.getInstance().getReference("groups");
+
         FirebaseAuth Auth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = Auth.getCurrentUser();
         if (currentUser == null) {
@@ -41,6 +47,7 @@ public class Personal_mode_makegroup extends Fragment {
         }
         String creatorUid = currentUser.getUid();
         puDatabaseRef = FirebaseDatabase.getInstance().getReference("AccountBook").child("Public_User_DB");
+
         peDatabaseRef = FirebaseDatabase.getInstance().getReference("AccountBook");
         // Generate a new key for the group
         String groupId = puDatabaseRef.push().getKey();
@@ -49,9 +56,38 @@ public class Personal_mode_makegroup extends Fragment {
         String inviteCode = generateInviteCode();
 
         // Create a new group object
-        Public_User_DB group = new Public_User_DB(groupName, creatorUid, inviteCode);
+        puDatabaseRef.child(groupId).child("creatorUid").setValue(creatorUid);
+        puDatabaseRef.child(groupId).child("groupName").setValue(groupName);
+        puDatabaseRef.child(groupId).child("inviteCode").setValue(inviteCode);
+        puDatabaseRef.child(groupId).child("members").setValue(creatorUid);
+
+        peDatabaseRef.child("UserAccount").child(currentUser.getUid()).child("GroupId").setValue(groupId);
+
+//        Public_User_DB group = new Public_User_DB();
+//        group.setGroupName(groupName);
+//        group.setCreatorUid(creatorUid);
+//        group.setInviteCode(inviteCode);
+//        group.setMembers(creatorUid);
+//        puDatabaseRef.child(groupId).setValue(group);
+
+        //////////////////////////////////////////////////////////////////////
+//        Public_User_DB group = new Public_User_DB(groupName, creatorUid, inviteCode);
         // Write the group object to the Realtime Database
-        puDatabaseRef.child(groupId).setValue(group);
+//
+//
+//        puDatabaseRef.child(groupId).setValue(group);
+//
+//        DatabaseReference membersRef = puDatabaseRef.child(groupId).child("members");
+//        membersRef.child(creatorUid).setValue(true);
+        //////////////////////////////////////////////////////////////////////
+
+
+//        Public_mode_DB_members groupmemeber= new Public_mode_DB_members(creatorUid);
+//        DatabaseReference membersRef = puDatabaseRef.child(groupId);
+//        membersRef.setValue(groupmemeber);
+
+//        DatabaseReference membersRef = puDatabaseRef.child(groupId).child("members");
+//        membersRef.child(creatorUid).setValue();
 //
 //        Personal_User_DB PeGroup = new Personal_User_DB(groupId);
 //        FirebaseUser firebaseUser = auth.getCurrentUser(); //getCurrentUser => 회원가입 이 된 유저를 가져온다.
@@ -61,7 +97,7 @@ public class Personal_mode_makegroup extends Fragment {
 
     private String generateInviteCode() {
         // Generate a random alphanumeric string of length 6
-        String allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        String allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         int length = 6;
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
@@ -142,7 +178,7 @@ public class Personal_mode_makegroup extends Fragment {
                 String groupName = edt_GroupName.getText().toString();
                 createNewGroup(groupName);
                 ((Personal_mode_menu)getActivity()).InviteCodeFragment(Show_InviteCode.newInstance());
-
+                Toast.makeText(getActivity(), "모임을 만들었습니다!", Toast.LENGTH_SHORT).show();
             }
         });
         return view;

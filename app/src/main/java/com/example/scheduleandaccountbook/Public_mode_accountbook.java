@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Public_mode_accountbook extends Fragment {
+    private Button btn_day, btn_month,btn_ocr;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,6 +48,10 @@ public class Public_mode_accountbook extends Fragment {
         return fragment;
     }
 
+    public static Public_mode_accountbook newInstance() {
+        return new Public_mode_accountbook();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +65,23 @@ public class Public_mode_accountbook extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_public_mode_user_accountbook, container, false);
+        View view = inflater.inflate(R.layout.fragment_public_mode_accountbook,container,false);
+        btn_month = view.findViewById(R.id.btn_month);
+        btn_ocr = view.findViewById(R.id.btn_ocr);
+        btn_month.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((Public_mode_menu)getActivity()).replaceFragment(Public_mode_accountbook_month.newInstance());
+
+            }
+        });
+        btn_ocr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((Public_mode_menu)getActivity()).replaceFragment(Public_mode_accountbook_ocr.newInstance());
+
+            }
+        });
+        return view;
     }
 }

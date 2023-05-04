@@ -4,29 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Personal_mode_accountbook">
-
+    tools:context=".Public_mode_accountbook_ocr">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/white"
         android:weightSum="3">
-
         <Button
-            android:id="@+id/btn_pday"
+            android:id="@+id/btn_day"
             android:backgroundTint="@color/white"
             android:background="#00ff0000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="일일"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/btn_pmonth"
+            android:id="@+id/btn_month"
             android:backgroundTint="@color/white"
             android:background="#00ff0000"
             android:layout_width="wrap_content"
@@ -37,44 +33,46 @@
 
 
         <Button
-            android:id="@+id/btn_pocr"
+            android:id="@+id/btn_ocr"
             android:backgroundTint="@color/white"
             android:background="#00ff0000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="영수증 인식"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_weight="1"/>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent">>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/FloatingBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
+            android:layout_marginBottom="3dp"
             android:backgroundTint="@color/white"
             android:clickable="true"
             android:src="@drawable/plus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="405dp"
-            android:layout_height="165dp"
-            android:layout_marginTop="60dp"
-            android:text="개인 가계부 일별"
-            android:textAlignment="center"
-            android:textSize="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="54dp"
+        android:text="공용가계부OCR"
+        android:textSize="60dp" />
+
 </FrameLayout>

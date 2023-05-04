@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Personal_mode_accountbook">
+    tools:context=".Personal_mode_accountbook_month">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,8 +20,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="일일"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_weight="1"/>
 
@@ -32,6 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="월별"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_weight="1"/>
 
@@ -56,25 +56,30 @@
             android:id="@+id/FloatingBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
             android:backgroundTint="@color/white"
             android:clickable="true"
             android:src="@drawable/plus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="405dp"
-            android:layout_height="165dp"
-            android:layout_marginTop="60dp"
-            android:text="개인 가계부 일별"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="455dp"
+            android:text="개인 가계부 월별"
             android:textAlignment="center"
             android:textSize="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/FloatingBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

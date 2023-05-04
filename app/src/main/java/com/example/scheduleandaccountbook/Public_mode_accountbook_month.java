@@ -1,37 +1,26 @@
 package com.example.scheduleandaccountbook;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Personal_mode_accountbook#newInstance} factory method to
+ * Use the {@link Public_mode_accountbook_month#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Personal_mode_accountbook extends Fragment {
+public class Public_mode_accountbook_month extends Fragment {
 
-    private final static float CLICK_DRAG_TOLERANCE = 10; // Often, there will be a slight, unintentional, drag when the user taps the FAB, so we need to account for this.
-    private FloatingActionButton FBtn;
-
-
+    private Button btn_day, btn_month, btn_ocr;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,7 +30,7 @@ public class Personal_mode_accountbook extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Personal_mode_accountbook() {
+    public Public_mode_accountbook_month() {
         // Required empty public constructor
     }
 
@@ -51,20 +40,20 @@ public class Personal_mode_accountbook extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Personal_mode_accountbook.
+     * @return A new instance of fragment Public_mode_accountbook_day.
      */
     // TODO: Rename and change types and number of parameters
-    public static Personal_mode_accountbook newInstance(String param1, String param2) {
-        Personal_mode_accountbook fragment = new Personal_mode_accountbook();
+    public static Public_mode_accountbook_month newInstance(String param1, String param2) {
+        Public_mode_accountbook_month fragment = new Public_mode_accountbook_month();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
-
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
-    public static Personal_mode_accountbook newInstance() {
-        return new Personal_mode_accountbook();
+
+    public static Public_mode_accountbook_month newInstance() {
+        return new Public_mode_accountbook_month();
     }
 
     @Override
@@ -75,24 +64,30 @@ public class Personal_mode_accountbook extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_personal_mode_accountbook,container,false);
-        Button btn_pmonth = view.findViewById(R.id.btn_pmonth);
-        Button btn_pocr = view.findViewById(R.id.btn_pocr);
-
-        btn_pmonth.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_public_mode_accountbook_month,container,false);
+        Fragment currentFragment = this;
+        btn_day = view.findViewById(R.id.btn_day);
+        btn_ocr = view.findViewById(R.id.btn_ocr);
+        btn_day.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((Personal_mode_menu)getActivity()).replaceFragment(Personal_mode_accountbook_month.newInstance());
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.public_mode_menu_frame, new Public_mode_accountbook());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
-        btn_pocr.setOnClickListener(new View.OnClickListener() {
+
+        btn_ocr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((Personal_mode_menu)getActivity()).replaceFragment(Personal_mode_accountbook_ocr.newInstance());
+                ((Public_mode_menu)getActivity()).replaceFragment(Public_mode_accountbook_ocr.newInstance());
+
             }
         });
         return view;

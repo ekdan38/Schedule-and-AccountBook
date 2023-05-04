@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/public_mode_tab_day"
+        android:enabled="true"
+        android:title="일별"/>
+    <item
+        android:id="@+id/public_mode_tab_month"
+        android:enabled="true"
+        android:title="월별"/>
+
+
+    <item
+        android:id="@+id/public_mode_tab_ocr"
+        android:enabled="true"
+        android:title="영수증 인식"/>
+</menu>
