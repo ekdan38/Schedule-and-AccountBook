@@ -12,7 +12,7 @@ Android기반의 영수증 인식, 공유 가계부 앱 개발
 
 ## 기능 
 1. 로그인
-<p align="cneter">
+<p align="right">
   <img src="https://github.com/ekdan38/Schedule-and-AccountBook/assets/103169652/92b1867d-c39d-4dea-af69-e453424d48a7" width="150" height="260" align="center">
 </p>
 firebase와 연동하여 가입된 이메일과 비밀번호를 입력하면 로그인이 된다. 회원가입 버튼을 통해 회원가입이 가능하다. 
