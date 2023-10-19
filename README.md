@@ -9,13 +9,12 @@ Android기반의 영수증 인식, 공유 가계부 앱 개발
 3. JDK 1.8.0
 4. JAVA
 5. Firebase
-
 ## 기능
 
 ### 1. 로딩
 <div align="center">
 <p align="center">
-  <img src="https://github.com/ekdan38/Schedule-and-AccountBook/assets/103169652/f24bc763-f6c3-4189-94fc-daebd7c0b3b6" width="150" height="260" align="center">
+  <img src="https://github.com/ekdan38/Schedule-and-AccountBook/assets/103169652/dbeab45c-a2be-4512-ab57-16e4cf6db11d" width="150" height="260" align="center">
 </p>
 </div>
 
