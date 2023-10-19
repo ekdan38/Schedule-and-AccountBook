@@ -1,6 +1,6 @@
 # Schedule-and-AccountBook
 
-##프로젝트 소개
+## 프로젝트 소개
 Android기반의 영수증 인식, 공유 가계부 앱 개발
 
 ## 개발 환경
@@ -10,4 +10,4 @@ Android기반의 영수증 인식, 공유 가계부 앱 개발
 4. JAVA
 5. Firebase
 
-##기능 
+## 기능 
