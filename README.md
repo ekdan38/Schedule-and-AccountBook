@@ -11,7 +11,7 @@ Android기반의 영수증 인식, 공유 가계부 앱 개발
 5. Firebase
 
 ## 기능 
-1. 로그인
+### 1. 로그인
 <div align="center">
 <p align="center">
   <img src="https://github.com/ekdan38/Schedule-and-AccountBook/assets/103169652/92b1867d-c39d-4dea-af69-e453424d48a7" width="150" height="260" align="center">
